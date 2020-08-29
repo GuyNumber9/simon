@@ -1,3 +1,163 @@
-h1 {
-    color: mediumslateblue
-}
+
+
+body {
+    display: flex;
+    padding: 0;
+    margin: 6px auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  #simon-app {
+    width: calc(100vmin - 12px);
+    height: calc(100vmin - 12px);
+  }
+  
+  .simon {
+    position: relative;
+    display: flex;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    min-width: 250px;
+    min-height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+  
+  .simon-controls {
+    position: absolute;
+    box-sizing: border-box;
+    color: white;
+    width: 50%;
+    height: 50%;
+    transform: translate(50%, 50%);
+    text-align: center;
+    background-color: lightslategray;
+    border: 5px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .simon-controls > h1 {
+    margin-bottom: 0.2em;
+  }
+
+  .simon-controls > .simon-round {
+    background-color: black;
+    width: 2em;
+    margin: 0 auto;
+    margin-bottom: 0.4em;
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    font-size: 1.5em;
+    color: orangered;
+    font-family: "Lucida Console", Monaco, monospace;
+  }
+
+  .simon-controls > button {
+    border-radius: 5px;
+    font-size: 1em;
+    border-style: solid;
+    border-color: goldenrod;
+    background-color: hsl(54, 100%, 50%);
+  }
+  
+  .simon-buttons {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .simon-btn {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+    border: 10px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  .simon-btn::before {
+    display: block;
+    position: absolute;
+    content: '';
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    top: 10%;
+    left: 10%;
+    border-style: none;
+    border-color: transparent;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+    transition: background-color 0.1s ease-in-out;
+  }
+  
+  
+  .red::before {
+    background-color: red;
+  }
+
+  .red.active::before {
+      background-color: hsl(0, 80%, 65%);
+      box-shadow: 0 0 20px hsl(0, 90%, 80%);
+  }
+  
+  .blue {
+    transform: rotate(90deg);
+  }
+  
+  .blue::before {
+    background-color: blue;
+  }
+
+  .blue.active::before {
+      background-color: hsl(240, 80%, 65%);
+      box-shadow: 0 0 20px hsl(240, 90%, 80%);
+  }
+  
+  .green {
+    transform: rotate(180deg);
+  }
+  
+  .green::before {
+    background-color: green;
+  }
+
+  .green.active::before {
+      background-color: hsl(120, 80%, 65%);
+      box-shadow: 0 0 20px hsl(120, 90%, 80%);
+  }
+  
+  .yellow {
+    transform: rotate(270deg);
+  }
+  
+  .yellow::before {
+    background-color: yellow;
+  }
+  
+  .yellow.active::before {
+      background-color: hsl(60, 80%, 65%);
+      box-shadow: 0 0 20px hsl(60, 90%, 80%);
+  }
+
+  @media (min-width: 500px){
+    .simon-controls {
+      font-size: 1.5em;
+    }
+  }
+
+  @media (min-width: 600px){
+    .simon-controls {
+      font-size: 2em;
+    }
+  }
+  
