@@ -17,7 +17,6 @@ export default class Sound {
         this.gain.gain.value = 0;
         
         this.oscillator.start(0);
-        //this.context.suspend();
     }
 
     play(frequency: number): () => void{
@@ -29,26 +28,10 @@ export default class Sound {
         o.connect(g);
         g.connect(this.context.destination);
         o.start(0);
-        //g.gain.setTargetAtTime(g.gain.value, this.context.currentTime, 0);
-        //g.gain.exponentialRampToValueAtTime(0.25, this.context.currentTime + 0.04);
-        /*let p = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                
-                resolve();
-            }, length);
-        })
-        */
         
         return () => {
             g.gain.setValueAtTime(g.gain.value, this.context.currentTime);
             g.gain.exponentialRampToValueAtTime(0.0001, this.context.currentTime + 0.04);
         };
-    }
-
-    stop(){
-        console.log(`stop()`);
-        //this.gain.gain.exponentialRampToValueAtTime(0.001, this.context.currentTime + 0.4);
-        //this.oscillator.stop();
-        //this.context.suspend();
     }
 }
